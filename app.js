@@ -1,3 +1,14 @@
+//Livestream notification to Discord
+//Created by Corey Caire aka CC Gaming
+//On April 1, 2022 (Not as an April Fool's joke)
+
+//discord-webhook-nodejs https://www.npmjs.com/package/discord-webhook-nodejs
+
+//Description
+//This will not automatically send to discord,
+//but allow you to create a command in a stream
+//that will send a notification to discord.
+
 const { Webhook, MessageBuilder } = require('discord-webhook-nodejs');
 require('dotenv').config();
 const express = require('express');
