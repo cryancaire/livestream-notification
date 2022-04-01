@@ -17,11 +17,7 @@ const server = app.listen(port, () => {
 app.get('/livenotification/:hookURL/:username/:channelName/:streamURL', async (req, res) => {
     const hook = new Webhook(WEBHOOK_BASE + req.params.hookURL);
     
-    const IMAGE_URL = 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png';
     hook.setUsername(`${req.params.username}`);
-    hook.setAvatar(IMAGE_URL);
-    
-
     hook.send(`**${req.params.channelName}** is live right now!\nCheck out the stream at ${req.params.streamURL}`);
 
     res.send("Notification sent!");
@@ -31,9 +27,7 @@ app.get('/livenotification/:hookURL/:username/:channelName/:streamURL', async (r
 app.get('/livenotification/:hookURL/:notify/:username/:channelName/:streamURL', async (req, res) => {
     const hook = new Webhook(WEBHOOK_BASE + req.params.hookURL);
     
-    const IMAGE_URL = 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png';
     hook.setUsername(`${req.params.username}`);
-    hook.setAvatar(IMAGE_URL);
     
     if (req.params.notify === "@") {
         hook.send(`@everyone **${req.params.channelName}** is live right now!\nCheck out the stream at ${req.params.streamURL}`);
