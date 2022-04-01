@@ -14,8 +14,8 @@ const server = app.listen(port, () => {
 
 
 
-app.get('/livenotification/:hookURL/:username/:channelName/:streamURL', async (req, res) => {
-    const hook = new Webhook(WEBHOOK_BASE + req.params.hookURL);
+app.get('/livenotification/:hookURL1/:hookURL2/:username/:channelName/:streamURL', async (req, res) => {
+    const hook = new Webhook(WEBHOOK_BASE + req.params.hookURL + req.params.hookURL2);
     
     hook.setUsername(`${req.params.username}`);
     hook.send(`**${req.params.channelName}** is live right now!\nCheck out the stream at ${req.params.streamURL}`);
@@ -24,8 +24,8 @@ app.get('/livenotification/:hookURL/:username/:channelName/:streamURL', async (r
 
 });
 
-app.get('/livenotification/:hookURL/:notify/:username/:channelName/:streamURL', async (req, res) => {
-    const hook = new Webhook(WEBHOOK_BASE + req.params.hookURL);
+app.get('/livenotification/:hookURL1/:hookURL2/:notify/:username/:channelName/:streamURL', async (req, res) => {
+    const hook = new Webhook(WEBHOOK_BASE + req.params.hookURL + req.params.hookURL2);
     
     hook.setUsername(`${req.params.username}`);
     
